@@ -19,12 +19,13 @@
 
 import { createRouter, createWebHistory } from "vue-router";
 import GetStartedRoutes from "src/Modules/GetStarted/Routes/Index.js";
-// import AuthRoutes from "src/Modules/Authentication/Routes";
+import HomeRoutes from "src/Modules/Home/Routes/Index.js";
 
 const routes = [];
 
 // routes.push(AuthRoutes);
 routes.push(GetStartedRoutes);
+routes.push(HomeRoutes);
 
 routes.push({
   path: "/:catchAll(.*)*",

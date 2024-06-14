@@ -7,7 +7,7 @@ const slide = ref(1);
 </script>
 
 <template>
-  <div class="column q-gutter-sm">
+  <div class="column q-gutter-sm q-ma-md">
     <div class="col text-h5 text-left q-pa-md">Popular Hotels</div>
     <q-separator inset />
     <div class="col">

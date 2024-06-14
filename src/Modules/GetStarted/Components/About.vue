@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="column">
+  <div class="column q-ma-md flex-center flex">
     <div class="col">
       <div class="text-h6 text-left">About Our Hotels</div>
     </div>

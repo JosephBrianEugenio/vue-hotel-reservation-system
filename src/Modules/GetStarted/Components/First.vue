@@ -1,7 +1,35 @@
 <script setup></script>
 
 <template>
-  <div class="first-background flex flex-center">
+  <div class="row q-pa-xl first text-white">
+    <div
+      class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 flex flex-center"
+    >
+      <div class="column q-gutter-y-md text-center">
+        <div class="col">
+          <div class="text-h2">Explore the <strong>Joseph Hotello</strong></div>
+        </div>
+        <div class="col">
+          <div class="text-subtitle2 text-justify">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            quaerat assumenda itaque hic ducimus? Nam id veritatis aut ipsum!
+            Dignissimos amet nesciunt blanditiis quos minus facilis qui numquam
+            deleniti optio.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center"
+    >
+      <q-img
+        src="src/assets/hotel1.jpg"
+        alt="first-image"
+        class="first-hotel-image"
+      />
+    </div>
+  </div>
+  <!-- <div class="first-background flex flex-center">
     <div class="column text-white">
       <div class="text-h4 text-weight-bold col">Are you lost Baby girl?</div>
       <div class="text-subtitle1 col">
@@ -15,7 +43,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style lang="scss" scoped>
@@ -40,5 +68,12 @@
   align-items: center; /* Centers items vertically */
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Blur effect */
+}
+
+.first-hotel-image {
+  width: 70%;
+}
+.first {
+  background-color: #ff9797;
 }
 </style>

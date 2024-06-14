@@ -1,9 +1,9 @@
 <script setup></script>
 
 <template>
-  <q-form class="column q-gutter-y-md">
+  <q-form class="column q-gutter-y-md text-primary q-px-md">
     <div class="col text-center">
-      <h3>Login</h3>
+      <div class="text-h3">Login</div>
     </div>
     <div class="col">
       <q-input outlined label="Email" />
