@@ -1,5 +1,6 @@
 import Contact from "./Contact.vue";
 import Login from "./AuthenticationDialog.vue";
+import RoomDialog from "./RoomDialog.vue";
 import { useQuasar } from "quasar";
 
 export function useComposableDialogs() {
@@ -19,5 +20,12 @@ export function useComposableDialogs() {
       console.log("data", data);
     });
   };
-  return { showContactDialog, showLoginDialog };
+  const showRoomListDialog = () => {
+    $q.dialog({
+      component: RoomDialog,
+    }).onOk((data) => {
+      console.log("data", data);
+    });
+  };
+  return { showContactDialog, showLoginDialog, showRoomListDialog };
 }

@@ -4,7 +4,7 @@ import HotelsAndRoomList from "./Components/RoomsAndHotelsList.vue";
 </script>
 
 <template>
-  <q-page class="flex flex-center"> <HotelsAndRoomList /> </q-page>
+  <q-page> <HotelsAndRoomList class="q-ma-md" /> </q-page>
 </template>
 
 <style lang="scss" scoped></style>
