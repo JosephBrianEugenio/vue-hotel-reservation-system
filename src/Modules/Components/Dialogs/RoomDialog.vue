@@ -3,6 +3,10 @@ import { useDialogPluginComponent } from "quasar";
 
 const { dialogRef } = useDialogPluginComponent();
 
+import { useComposableDialogs } from "src/Modules/Components/Dialogs/Dialogs.js";
+
+const { showCreateBook } = useComposableDialogs();
+
 // Emits to handle dialog events
 defineEmits(["hide"]);
 
@@ -43,7 +47,7 @@ const handleClose = () => {
         <q-card-actions>
           <!-- <q-btn flat round icon="event" /> -->
           <!-- <q-btn flat> 7:30PM </q-btn> -->
-          <q-btn flat color="primary"> Book </q-btn>
+          <q-btn @click="showCreateBook" flat color="primary"> Book </q-btn>
         </q-card-actions>
       </q-card>
     </q-dialog>

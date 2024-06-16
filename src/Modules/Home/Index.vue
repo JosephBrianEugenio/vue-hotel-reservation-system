@@ -1,6 +1,16 @@
 <script setup>
-import RoomsAndHotels from "./Components/RoomsAndHotelsCarousel.vue";
+import { ref, onMounted } from "vue";
 import HotelsAndRoomList from "./Components/RoomsAndHotelsList.vue";
+
+import { storeToRefs } from "pinia";
+
+import { useHotelStore } from "../Home/Stores/Hotels";
+
+const hotelStore = useHotelStore();
+
+onMounted(() => {
+  hotelStore.getHotelListToAPI();
+});
 </script>
 
 <template>
