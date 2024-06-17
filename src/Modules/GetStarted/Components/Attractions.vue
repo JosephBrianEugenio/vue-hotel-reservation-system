@@ -12,7 +12,10 @@ const { attractions } = attractionsList();
       <div class="text-h3">Featured Attractions</div>
     </div>
     <div class="col-12 col-xs-12 col-md-5 col-lg-5 text-center">
-      <q-img src="src/assets/Villa/villa1.jpg" class="image-attractions" />
+      <q-img
+        src="https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        class="image-attractions"
+      />
     </div>
     <div class="col-12 col-xs-12 col-md-6 col-lg-6 flex-center flex">
       <div class="column q-mx-xl q-px-xl">
@@ -35,11 +38,17 @@ const { attractions } = attractionsList();
       </div>
     </div>
     <div class="col-12 col-xs-12 col-md-5 col-lg-5 text-center">
-      <q-img src="src/assets/Villa/villa2.jpg" class="image-attractions" />
+      <q-img
+        src="https://images.pexels.com/photos/60217/pexels-photo-60217.jpeg"
+        class="image-attractions"
+      />
     </div>
 
     <div class="col-12 col-xs-12 col-md-5 col-lg-5 text-center">
-      <q-img src="src/assets/Villa/villa3.jpg" class="image-attractions" />
+      <q-img
+        src="https://images.pexels.com/photos/1962732/pexels-photo-1962732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        class="image-attractions"
+      />
     </div>
 
     <div class="col-12 col-xs-12 col-md-6 col-lg-6 flex-center flex">

@@ -20,7 +20,7 @@
       class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center"
     >
       <q-img
-        src="src/assets/hotel1.jpg"
+        src="https://images.pexels.com/photos/2017802/pexels-photo-2017802.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         alt="first-image"
         class="first-hotel-image"
       />
