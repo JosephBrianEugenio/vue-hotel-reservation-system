@@ -55,7 +55,7 @@ onMounted(fetchRooms);
             <q-tooltip class="bg-white text-primary">Close</q-tooltip>
           </q-btn>
         </q-bar>
-        <q-card-section class="text-center">
+        <q-card-section class="text-center" v-if="!roomsList.length">
           <div class="text-subtitle">Sorry, no rooms available</div>
           <q-btn
             @click="onHandleNoRoomRoute"
@@ -66,6 +66,7 @@ onMounted(fetchRooms);
           />
         </q-card-section>
         <q-card-section
+          v-else
           horizontal
           v-for="(items, index) in roomsList"
           :key="index"
