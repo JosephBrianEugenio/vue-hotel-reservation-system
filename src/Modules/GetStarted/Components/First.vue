@@ -20,7 +20,7 @@
       class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center"
     >
       <q-img
-        src="src/assets/hotel1.jpg"
+        src="public/Static/hotel1.jpg"
         alt="first-image"
         class="first-hotel-image"
       />
