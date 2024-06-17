@@ -8,6 +8,11 @@ const route = {
       name: "home.view",
       component: () => import("src/Modules/Home/Index.vue"),
     },
+    {
+      path: "hotel/:uid",
+      name: "hotel.detail",
+      component: () => import("src/Modules/Home/HotelDetails.vue"),
+    },
   ],
 };
 

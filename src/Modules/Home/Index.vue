@@ -8,13 +8,18 @@ import { useHotelStore } from "../Home/Stores/Hotels";
 
 const hotelStore = useHotelStore();
 
+const { hotelList } = storeToRefs(hotelStore);
+
 onMounted(() => {
   hotelStore.getHotelListToAPI();
+  hotelStore.getAllBookFromAPI();
 });
 </script>
 
 <template>
-  <q-page> <HotelsAndRoomList class="q-ma-md" /> </q-page>
+  <q-page>
+    <HotelsAndRoomList :hotelList="hotelList" class="q-ma-md" />
+  </q-page>
 </template>
 
 <style lang="scss" scoped></style>

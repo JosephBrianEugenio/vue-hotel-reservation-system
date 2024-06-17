@@ -1,10 +1,6 @@
 import axios from "axios";
 import { useAuthStore } from "src/Modules/Authentication/Stores/Auth";
 
-const apiAxiosInstance = axios.create({
-  baseURL: "https://reservehotel.pythonanywhere.com/client/",
-});
-
 export const HTTP_WEB = () => {
   const defaultHeaders = {
     Accept: "application/json",

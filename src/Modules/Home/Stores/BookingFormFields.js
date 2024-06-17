@@ -41,10 +41,10 @@ export function useBookingFormFields() {
 
   const createBookingPayload = ref(createBookingFieldModels());
 
-  const onSubmitBooking = async () => {
+  const onSubmitBooking = async (hotelUid) => {
     try {
       const payload = createBookingPayload.value;
-      await hotelStore.createBookingToAPI(payload);
+      await hotelStore.createBookingToAPI(hotelUid, payload);
     } catch (err) {
       console.error;
     }

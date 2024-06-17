@@ -21,16 +21,18 @@ export function useComposableDialogs() {
       console.log("data", data);
     });
   };
-  const showRoomListDialog = () => {
+  const showRoomListDialog = (uid) => {
     $q.dialog({
       component: RoomDialog,
+      componentProps: { uid },
     }).onOk((data) => {
       console.log("data", data);
     });
   };
-  const showCreateBook = () => {
+  const showCreateBook = (items) => {
     $q.dialog({
       component: CreateBooking,
+      componentProps: { items },
     }).onOk((data) => {
       console.log("data", data);
     });
