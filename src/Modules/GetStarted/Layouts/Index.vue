@@ -1,5 +1,11 @@
 <script setup>
 import { useComposableDialogs } from "src/Modules/Components/Dialogs/Dialogs.js";
+import { useAuthStore } from "src/Modules/Authentication/Stores/Auth";
+import { storeToRefs } from "pinia";
+
+const authStore = useAuthStore();
+
+const { isAuthenticated } = storeToRefs(authStore);
 
 const { showContactDialog, showLoginDialog } = useComposableDialogs();
 // defineOptions({});
@@ -10,7 +16,7 @@ const { showContactDialog, showLoginDialog } = useComposableDialogs();
     <q-header reveal elevated class="transparent-header">
       <q-toolbar>
         <q-toolbar-title class="text-primary">Joseph Hotello</q-toolbar-title>
-        <div class="row q-gutter-x-sm">
+        <div v-if="!isAuthenticated" class="row q-gutter-x-sm">
           <q-btn
             class="q-px-lg q-py-sm"
             color="primary"

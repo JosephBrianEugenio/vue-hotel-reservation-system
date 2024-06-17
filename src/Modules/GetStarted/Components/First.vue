@@ -10,11 +10,8 @@
           <div class="text-h2">Explore the <strong>Joseph Hotello</strong></div>
         </div>
         <div class="col">
-          <div class="text-subtitle2 text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            quaerat assumenda itaque hic ducimus? Nam id veritatis aut ipsum!
-            Dignissimos amet nesciunt blanditiis quos minus facilis qui numquam
-            deleniti optio.
+          <div class="text-subtitle1 text-center">
+            This is the hotels/rooms reservation system
           </div>
         </div>
       </div>

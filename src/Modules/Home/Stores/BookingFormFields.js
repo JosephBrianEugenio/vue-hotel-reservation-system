@@ -44,28 +44,35 @@ export function useBookingFormFields() {
   const onSubmitBooking = async (hotelUid) => {
     try {
       const payload = createBookingPayload.value;
-      await hotelStore.createBookingToAPI(hotelUid, payload);
-
-      // Show success notification only if the API call is successful
-      $q.notify({
-        color: "positive",
-        position: "top-left",
-        message: "Successfully Booked",
-      });
-
-      // Navigate or perform other actions upon successful booking
-      // await router.push();
+      const response = await hotelStore.createBookingToAPI(hotelUid, payload);
+      console.log("response here", response);
     } catch (err) {
+      console.log("err", err);
       console.error(err.response?.data?.message || err.message);
-
-      // Show error notification if the API call fails
-      $q.notify({
-        color: "negative",
-        position: "top-left",
-        message: err.response?.data?.message || "Booking failed",
-      });
     }
   };
 
-  return { createBookingPayload, onSubmitBooking, numberOfGuestOptions };
+  const onCancelBooking = async (bookId) => {
+    try {
+      const response = await hotelStore.cancelBookingToAPI(bookId);
+      console.log("response", response);
+      $q.notify({
+        color: "positive",
+        position: "top-left",
+        message: response.message,
+      });
+      return router.push({ path: "home" });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      return router.push({ path: "home" });
+    }
+  };
+
+  return {
+    createBookingPayload,
+    onSubmitBooking,
+    numberOfGuestOptions,
+    onCancelBooking,
+  };
 }

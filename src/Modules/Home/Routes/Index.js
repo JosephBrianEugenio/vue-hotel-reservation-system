@@ -1,4 +1,5 @@
 const route = {
+  meta: { requiresAuth: true },
   path: "/",
   component: () => import("src/Modules/Home/Layouts/Index.vue"),
   redirect: { name: "home.view" },

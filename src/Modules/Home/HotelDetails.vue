@@ -1,11 +1,12 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useHotelStore } from "./Stores/Hotels";
 import { storeToRefs } from "pinia";
 import { useComposableDialogs } from "src/Modules/Components/Dialogs/Dialogs.js";
 
 const route = useRoute();
+const router = useRouter();
 const hotelStore = useHotelStore();
 const { showRoomListDialog } = useComposableDialogs();
 const { hotelListDetails } = storeToRefs(hotelStore);
@@ -33,6 +34,16 @@ watch(
 
 <template>
   <q-page class="flex flex-center">
+    <q-btn
+      icon="arrow_back"
+      @click="router.back()"
+      class="absolute-top-left q-mt-md q-ml-md"
+      flat
+      round
+      outline
+      push
+      color="primary"
+    />
     <q-card
       v-if="hotelListDetails && hotelListDetails.location"
       class="my-card"

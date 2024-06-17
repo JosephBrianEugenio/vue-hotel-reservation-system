@@ -28,7 +28,11 @@ const onHandleRedirect = async (items) => {
     </div>
     <div class="col">
       <div class="row">
-        <div class="col-3" v-for="(items, index) in hotelList" :key="index">
+        <div
+          class="col-12 col-xs-12 col-sm-12 col-md-3 col-xl-3 col-xxl-3"
+          v-for="(items, index) in hotelList"
+          :key="index"
+        >
           <q-card class="my-card" flat bordered>
             <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
             <q-card-section>
@@ -48,12 +52,22 @@ const onHandleRedirect = async (items) => {
               </q-btn>
 
               <div class="row no-wrap items-center">
-                <div class="col text-h6 ellipsis">{{ items.hotel_name }}</div>
+                <div class="col text-h6 ellipsis">
+                  {{ items.hotel_name }}
+                </div>
+              </div>
+            </q-card-section>
+            <q-card-section class="q-py-none">
+              <div class="text-overline">
+                <q-icon name="location_on" size="xs" color="primary" />{{
+                  items.location
+                }}
               </div>
             </q-card-section>
 
             <q-card-section class="q-pt-none">
               <div class="text-caption text-grey">
+                <q-icon name="description" size="xs" color="primary" />
                 {{ items.description }}
               </div>
             </q-card-section>

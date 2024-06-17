@@ -38,11 +38,19 @@ export function useAuthenticationFormFields() {
         position: "top-left",
         message: "Successfully Created",
       });
-      // await router.push({ name: "getting.started" });
     } catch (error) {
-      console.error(error);
-    } finally {
-      loading.value = false;
+      let errorMessage =
+        error.response?.data?.email ||
+        (typeof error.response?.data === "object"
+          ? Object.values(error.response.data)[0] // Get the first error message if email is not present
+          : error.response?.data?.toString()) ||
+        "Unknown error occurred";
+
+      $q.notify({
+        color: "negative",
+        position: "top-left",
+        message: errorMessage,
+      });
     }
   };
 
@@ -58,8 +66,6 @@ export function useAuthenticationFormFields() {
       await router.push({ path: "home" });
     } catch (err) {
       console.error(err);
-
-      // Show error notification
       $q.notify({
         color: "negative",
         position: "top-left",

@@ -56,15 +56,29 @@ onMounted(fetchRooms);
           <q-card-section class="q-pt-xs col-7">
             <div class="text-overline">Room Information</div>
             <div class="text-body1 q-mt-sm q-mb-xs">
-              Room number: {{ items.room_no }}
+              <q-icon
+                name="hotel"
+                size="xs"
+                color="primary"
+                class="q-mr-xs"
+              />Room number:
+              {{ items.room_no }}
             </div>
             <div class="text-body1 q-mt-sm q-mb-xs">
-              Room type:{{ items.type }}
+              <q-icon name="bed" size="xs" color="primary" class="q-mr-xs" />
+              Room type: {{ items.room_type }}
             </div>
             <div class="text-body1 q-mt-sm q-mb-xs">
+              <q-icon name="groups" size="xs" color="primary" class="q-mr-xs" />
               Room max guest: {{ items.max_guest }}
             </div>
             <div class="text-caption text-grey q-mt-md">
+              <q-icon
+                name="description"
+                size="xs"
+                color="primary"
+                class="q-mr-xs"
+              />
               {{ items.description }}
             </div>
             <div>

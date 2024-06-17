@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useComposableDialogs } from "src/Modules/Components/Dialogs/Dialogs";
+
+const { showLoginDialog } = useComposableDialogs();
+</script>
 
 <template>
   <div class="column q-pa-xl q-gutter-y-md">
@@ -19,7 +23,12 @@
       </div>
     </div>
     <div class="col text-center q-pt-md">
-      <q-btn class="q-px-lg q-py-sm" label="Book now!" outline />
+      <q-btn
+        @click="showLoginDialog"
+        class="q-px-lg q-py-sm"
+        label="Book now!"
+        outline
+      />
     </div>
   </div>
 </template>

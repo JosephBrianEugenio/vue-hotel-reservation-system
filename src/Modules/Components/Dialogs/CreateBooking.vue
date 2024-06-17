@@ -177,7 +177,7 @@ const onHandleSubmit = async () => {
           <div class="col-12">
             <q-input
               v-model="createBookingPayload.description"
-              label="Description"
+              label="Suggestion"
               type="textarea"
               outlined
               :rules="rules.requiredRules"

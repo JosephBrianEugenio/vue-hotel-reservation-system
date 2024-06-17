@@ -1,12 +1,18 @@
 import { defineStore } from "pinia";
 import { HTTP_API } from "src/boot/https";
+import { useQuasar } from "quasar";
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 
 export const useHotelStore = defineStore("hotelStore", () => {
+  const $q = useQuasar();
+
+  const router = useRouter();
+
   const hotelList = ref([]);
   const hotelListDetails = ref({});
   const roomsList = ref([]);
-  const bookList = ref([]);
+  const bookingList = ref({});
 
   const getHotelListToAPI = async () => {
     try {
@@ -42,15 +48,40 @@ export const useHotelStore = defineStore("hotelStore", () => {
         `booking/add/?rooms=${hotelUid}`,
         payload
       );
+      $q.notify({
+        color: "positive",
+        position: "top-left",
+        message: data.message,
+      });
+      router.push("home.view");
+
+      return data;
+    } catch (err) {
+      console.error("andito ka ba ?", err.response.data.message);
+      $q.notify({
+        color: "negative",
+        position: "top-left",
+        message: err.response.data?.message || "Booking failed",
+      });
+    }
+  };
+
+  const cancelBookingToAPI = async (bookingId) => {
+    try {
+      const { data } = await HTTP_API().put(
+        `booking/cancel/?booking_id=${bookingId}`
+      );
       return data;
     } catch (err) {
       console.error(err);
     }
   };
+
   const getAllBookFromAPI = async () => {
     try {
       const { data } = await HTTP_API().get("booking/list/");
-      console.log("data booking", data);
+      console.log("datass", data.data);
+      bookingList.value = data.data;
     } catch (err) {
       console.error(err);
       throw err;
@@ -62,8 +93,10 @@ export const useHotelStore = defineStore("hotelStore", () => {
     getRoomsToAPI,
     createBookingToAPI,
     getAllBookFromAPI,
+    cancelBookingToAPI,
     hotelList,
     hotelListDetails,
+    bookingList,
     roomsList,
   };
 });

@@ -1,9 +1,26 @@
 <script setup>
+import { ref } from "vue";
 import { useQuasar, useDialogPluginComponent } from "quasar";
 
 defineEmits([...useDialogPluginComponent.emits]);
 
 const { dialogRef, onDialogHide, onDialogCancel } = useDialogPluginComponent();
+
+const $q = useQuasar();
+
+const name = ref("");
+
+const email = ref("");
+
+const thoughts = ref("");
+
+const onSubmitContacts = () => {
+  $q.notify({
+    color: "positive",
+    position: "top-left",
+    message: "Your message was sent successfully",
+  });
+};
 </script>
 
 <template>
@@ -29,18 +46,27 @@ const { dialogRef, onDialogHide, onDialogCancel } = useDialogPluginComponent();
       <q-card-section>
         <div class="column q-gutter-y-md">
           <div class="col">
-            <q-input outlined label="Name" />
+            <q-input v-model="name" outlined label="Name" />
           </div>
           <div class="col">
-            <q-input outlined label="Email" />
+            <q-input v-model="email" outlined label="Email" />
           </div>
           <div class="col">
-            <q-input outlined label="Thoughts" type="textarea" />
+            <q-input
+              v-model="thoughts"
+              outlined
+              label="Thoughts"
+              type="textarea"
+            />
           </div>
         </div>
       </q-card-section>
       <q-card-actions>
-        <q-btn label="submit" class="bg-primary text-white full-width" />
+        <q-btn
+          @click="onSubmitContacts"
+          label="submit"
+          class="bg-primary text-white full-width"
+        />
       </q-card-actions>
     </q-card>
   </q-dialog>
