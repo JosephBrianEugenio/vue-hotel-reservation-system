@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { useQuasar } from "quasar";
 import { HTTP_WEB } from "src/boot/https.js";
 import { ref, computed } from "vue";
 import { useLocalStorage } from "@vueuse/core";
@@ -13,7 +14,7 @@ export const registrationInitialState = () => [
 ];
 
 export const useAuthStore = defineStore("authStore", () => {
-  // const $q = useQuasar();
+  const $q = useQuasar();
   const registerState = ref(registrationInitialState());
 
   const token = useLocalStorage("access_token");
@@ -48,23 +49,12 @@ export const useAuthStore = defineStore("authStore", () => {
       const data = await HTTP_WEB().post("login/", payload);
       console.log("data", data.data.access_token);
       token.value = data.data.access_token;
-      //   registerState.value = data.data.data;
-      //   $q.notify({
-      //     color: "positive",
-      //     position: "bottom",
-      //     message: "Success",
-      //   });
+      registerState.value = data.data.data;
+      return data;
     } catch (error) {
-      console.error("error", error.response.data.errors);
-      //   const errorMessage = Object.values(error.response.data.errors)
-      //     .map((fieldErrors) => fieldErrors.join(", "))
-      //     .join(", ");
+      console.error("error", error.data.error);
 
-      //   $q.notify({
-      //     color: "negative",
-      //     position: "bottom",
-      //     message: errorMessage,
-      //   });
+      throw error;
     }
   };
 

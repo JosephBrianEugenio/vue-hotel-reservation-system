@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import BookList from "./Components/BookList.vue";
 import HotelsAndRoomList from "./Components/RoomsAndHotelsList.vue";
 
 import { storeToRefs } from "pinia";
@@ -18,7 +19,10 @@ onMounted(() => {
 
 <template>
   <q-page>
-    <HotelsAndRoomList :hotelList="hotelList" class="q-ma-md" />
+    <div class="flex flex-center" v-if="!hotelList.length">
+      Hotels not found
+    </div>
+    <HotelsAndRoomList :hotelList="hotelList" class="q-ma-md" v-else />
   </q-page>
 </template>
 

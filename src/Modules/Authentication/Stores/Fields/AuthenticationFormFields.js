@@ -18,6 +18,8 @@ export const loginFieldsModels = () => ({
 export function useAuthenticationFormFields() {
   const authStore = useAuthStore();
 
+  const loading = ref(false);
+
   const router = useRouter();
 
   const $q = useQuasar();
@@ -28,24 +30,41 @@ export function useAuthenticationFormFields() {
 
   const onSubmitRegister = async () => {
     try {
-      // loading.value = true;
+      loading.value = true;
       const payload = registerPayload.value;
       await authStore.registerAccountToAPI(payload);
+      $q.notify({
+        color: "positive",
+        position: "top-left",
+        message: "Successfully Created",
+      });
       // await router.push({ name: "getting.started" });
     } catch (error) {
       console.error(error);
     } finally {
-      // loading.value = false;
+      loading.value = false;
     }
   };
 
   const onSubmitLogin = async () => {
     try {
       const payload = loginPayload.value;
-      await authStore.loginAccountToAPI(payload);
-      // await router.push({ path: "home" });
+      const data = await authStore.loginAccountToAPI(payload);
+      $q.notify({
+        color: "positive",
+        position: "top-left",
+        message: "Successfully Login",
+      });
+      await router.push({ path: "home" });
     } catch (err) {
       console.error(err);
+
+      // Show error notification
+      $q.notify({
+        color: "negative",
+        position: "top-left",
+        message: "Invalid Credentials",
+      });
     }
   };
 

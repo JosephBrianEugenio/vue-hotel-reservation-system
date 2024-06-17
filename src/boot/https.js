@@ -7,7 +7,7 @@ export const HTTP_WEB = () => {
   };
 
   const webAxiosInstance = axios.create({
-    baseURL: "https://reservehotel.pythonanywhere.com/client/",
+    baseURL: "",
     headers: { ...defaultHeaders },
   });
 
@@ -23,7 +23,7 @@ export const HTTP_API = () => {
   };
 
   const webAxiosInstance = axios.create({
-    baseURL: "https://reservehotel.pythonanywhere.com/client/",
+    baseURL: "",
     headers: { ...defaultHeaders },
   });
 

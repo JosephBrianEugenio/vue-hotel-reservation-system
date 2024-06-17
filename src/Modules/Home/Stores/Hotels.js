@@ -42,7 +42,6 @@ export const useHotelStore = defineStore("hotelStore", () => {
         `booking/add/?rooms=${hotelUid}`,
         payload
       );
-      console.log("data booking", data);
       return data;
     } catch (err) {
       console.error(err);
@@ -54,6 +53,7 @@ export const useHotelStore = defineStore("hotelStore", () => {
       console.log("data booking", data);
     } catch (err) {
       console.error(err);
+      throw err;
     }
   };
   return {
