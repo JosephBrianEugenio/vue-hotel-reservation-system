@@ -27,7 +27,7 @@ const onHandleRedirect = async (items) => {
       <div class="text-h4">Welcome!</div>
     </div>
     <div class="col">
-      <div class="row">
+      <div class="row q-gutter-md justify-center">
         <div
           class="col-12 col-xs-12 col-sm-12 col-md-3 col-xl-3 col-xxl-3"
           v-for="(items, index) in hotelList"

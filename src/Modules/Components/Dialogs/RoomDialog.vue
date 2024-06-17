@@ -3,6 +3,9 @@ import { ref, onMounted } from "vue";
 import { useDialogPluginComponent } from "quasar";
 import { useHotelStore } from "src/Modules/Home/Stores/Hotels";
 import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const { dialogRef } = useDialogPluginComponent();
 
@@ -16,6 +19,10 @@ defineEmits(["hide"]);
 // Function to emit hide event and close dialog
 const handleClose = () => {
   emit("hide");
+};
+
+const onHandleNoRoomRoute = () => {
+  router.push({ name: "home.view" });
 };
 
 const props = defineProps({
@@ -48,6 +55,16 @@ onMounted(fetchRooms);
             <q-tooltip class="bg-white text-primary">Close</q-tooltip>
           </q-btn>
         </q-bar>
+        <q-card-section class="text-center">
+          <div class="text-subtitle">Sorry, no rooms available</div>
+          <q-btn
+            @click="onHandleNoRoomRoute"
+            label="go home"
+            outline
+            color="primary"
+            class="q-ma-md"
+          />
+        </q-card-section>
         <q-card-section
           horizontal
           v-for="(items, index) in roomsList"
