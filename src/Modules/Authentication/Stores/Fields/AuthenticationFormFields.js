@@ -51,6 +51,8 @@ export function useAuthenticationFormFields() {
         position: "top-left",
         message: errorMessage,
       });
+    } finally {
+      loading.value = false;
     }
   };
 

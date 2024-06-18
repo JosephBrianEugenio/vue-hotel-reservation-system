@@ -18,6 +18,8 @@ export function useBookingFormFields() {
   const $q = useQuasar();
   const router = useRouter();
 
+  const loading = ref(false);
+
   const hotelStore = useHotelStore();
 
   const numberOfGuestOptions = [
@@ -43,12 +45,15 @@ export function useBookingFormFields() {
 
   const onSubmitBooking = async (hotelUid) => {
     try {
+      loading.value = true;
       const payload = createBookingPayload.value;
       const response = await hotelStore.createBookingToAPI(hotelUid, payload);
       console.log("response here", response);
     } catch (err) {
       console.log("err", err);
       console.error(err.response?.data?.message || err.message);
+    } finally {
+      loading.value = false;
     }
   };
 
@@ -74,5 +79,6 @@ export function useBookingFormFields() {
     onSubmitBooking,
     numberOfGuestOptions,
     onCancelBooking,
+    loading,
   };
 }

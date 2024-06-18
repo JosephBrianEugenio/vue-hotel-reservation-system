@@ -8,7 +8,7 @@ defineEmits([...useDialogPluginComponent.emits]);
 
 const { dialogRef, onDialogHide, onDialogCancel } = useDialogPluginComponent();
 
-const { numberOfGuestOptions, createBookingPayload, onSubmitBooking } =
+const { numberOfGuestOptions, createBookingPayload, onSubmitBooking, loading } =
   useBookingFormFields();
 
 const { rules } = useValidationRules();
@@ -190,6 +190,7 @@ const onHandleSubmit = async () => {
               text-color="white"
               class="full-width"
               label="Submit"
+              :loading="loading"
             />
           </div>
         </q-form>

@@ -3,7 +3,8 @@ import { ref } from "vue";
 import { useAuthenticationFormFields } from "../Stores/Fields/AuthenticationFormFields";
 import useValidationRules from "src/Modules/Composables/ValidationRules";
 
-const { registerPayload, onSubmitRegister } = useAuthenticationFormFields();
+const { registerPayload, onSubmitRegister, loading } =
+  useAuthenticationFormFields();
 
 const { rules } = useValidationRules();
 
@@ -83,7 +84,13 @@ const validationPassword = ref({
       ></q-input>
     </div>
     <div class="col-12 q-pb-md">
-      <q-btn type="submit" class="full-width" color="primary" label="Sign up" />
+      <q-btn
+        type="submit"
+        class="full-width"
+        color="primary"
+        label="Sign up"
+        :loading="loading"
+      />
     </div>
   </q-form>
 </template>
