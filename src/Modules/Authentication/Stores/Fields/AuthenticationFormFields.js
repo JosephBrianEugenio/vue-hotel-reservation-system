@@ -56,6 +56,7 @@ export function useAuthenticationFormFields() {
 
   const onSubmitLogin = async () => {
     try {
+      loading.value = true;
       const payload = loginPayload.value;
       const data = await authStore.loginAccountToAPI(payload);
       $q.notify({
@@ -71,6 +72,8 @@ export function useAuthenticationFormFields() {
         position: "top-left",
         message: "Invalid Credentials",
       });
+    } finally {
+      loading.value = false;
     }
   };
 
@@ -79,5 +82,6 @@ export function useAuthenticationFormFields() {
     loginPayload,
     onSubmitRegister,
     onSubmitLogin,
+    loading,
   };
 }

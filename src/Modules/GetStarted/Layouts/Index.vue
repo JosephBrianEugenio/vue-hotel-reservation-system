@@ -1,14 +1,23 @@
 <script setup>
+import { onMounted } from "vue";
 import { useComposableDialogs } from "src/Modules/Components/Dialogs/Dialogs.js";
 import { useAuthStore } from "src/Modules/Authentication/Stores/Auth";
 import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const authStore = useAuthStore();
 
 const { isAuthenticated } = storeToRefs(authStore);
 
 const { showContactDialog, showLoginDialog } = useComposableDialogs();
-// defineOptions({});
+
+onMounted(() => {
+  if (isAuthenticated) {
+    return router.push({ path: "/home" });
+  }
+});
 </script>
 
 <template>

@@ -5,7 +5,7 @@ import useValidationRules from "src/Modules/Composables/ValidationRules";
 
 const { rules } = useValidationRules();
 
-const { loginPayload, onSubmitLogin } = useAuthenticationFormFields();
+const { loginPayload, onSubmitLogin, loading } = useAuthenticationFormFields();
 
 const isPwd = ref(true);
 </script>
@@ -24,7 +24,7 @@ const isPwd = ref(true);
         v-model="loginPayload.email"
         outlined
         label="Email"
-        :rules="rules.requiredRules"
+        :rules="rules.email"
       />
     </div>
     <div class="col">
@@ -45,7 +45,13 @@ const isPwd = ref(true);
       </q-input>
     </div>
     <div class="col">
-      <q-btn type="submit" class="full-width" color="primary" label="Login" />
+      <q-btn
+        type="submit"
+        class="full-width"
+        color="primary"
+        label="Login"
+        :loading="loading"
+      />
     </div>
   </q-form>
 </template>
